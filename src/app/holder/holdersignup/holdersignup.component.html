@@ -1,0 +1,54 @@
+<div class="container">
+
+    <div class="row justify-content-center pt-5 ">
+        <div class="col-xl-5 col-md-8">
+
+            <form #signup = "ngForm" (ngSubmit) = "onSignUp()" class=" rounded shadow-5-strong p-5 border border-1 border-warning shadow-lg p-3 mb-5 bg-body rounded">
+                <div class="text-left pb-1 pt-3 fw-bolder text-uppercase">
+                    <h5>Create account</h5>
+                </div>
+                <div class="text-left pb-3 pt-3">
+                    <h6>In order to access your wallet you will need to set up a password first</h6>
+                </div>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label " for="form1Example1">UserName</label>
+                    <input type="text" id="form1Example1" required class="form-control" #email="ngModel" name = "email" [(ngModel)] = "userName" />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label " for="form1Example2">Password</label>
+                    <input type="password" id="form1Example2" class="form-control" required #password = "ngModel" name="password" [(ngModel)] = "userPassword"/>
+                </div>
+                <!-- Password con input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label " for="form1Example2">Confirm Password</label>
+                    <input type="password" id="form1Example2" class="form-control" />
+                </div>
+                <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4">
+                    <div class="col d-flex justify-content-left">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                            <label class="form-check-label" for="form1Example3">
+                                Remember me
+                            </label>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-warning ">Signup</button>
+                </div>
+
+                <div class="text-left pt-3">
+                    <p> Already have an account <a routerLink="/holder/login">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
