@@ -10,6 +10,8 @@ import { TablepageComponent } from './issuer/tablepage/tablepage.component';
 import { VerifierloginComponent } from './verifier/verifierlogin/verifierlogin.component';
 import { VerifiersignupComponent } from './verifier/verifiersignup/verifiersignup.component';
 import { VerifiertableComponent } from './verifier/verifiertable/verifiertable.component';
+import { SharecredspageComponent} from './verifier/sharecredspage/sharecredspage.component';
+import {AdminpageComponent} from './issuer/adminpage/adminpage.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path:"verifier/login",component:VerifierloginComponent},
   {path:"verifier/signup",component:VerifiersignupComponent},
   {path:"verifier/dashboard",component:VerifiertableComponent},
+  {path:"issuer/admin", component:AdminpageComponent},
+  {path:"verifier/sharecreds", component:SharecredspageComponent}
 ];
 
 @NgModule({

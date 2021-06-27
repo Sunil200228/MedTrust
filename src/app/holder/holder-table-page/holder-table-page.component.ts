@@ -12,6 +12,12 @@ export class HolderTablePageComponent implements OnInit {
   constructor(private _router : Router, private _credService : CredentialService) { }
 
   ngOnInit(): void {
+    this._credService.getallVC().subscribe(res =>{
+      this.vcdata = res;
+      console.log(this.vcdata);
+    }, err=>{
+      console.log(err);
+    });
   }
 
   getallVC(): void {

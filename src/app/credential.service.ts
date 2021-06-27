@@ -44,7 +44,7 @@ export class CredentialService {
   storeVC(data:any){
     let accessToken = localStorage.getItem('accessToken') || '';
     let signingheaders = new HttpHeaders().set('Authorization', accessToken).set('Api-Key', '265d6e337001dfbd73a634459c0ab47dea1ed69c2eb4a323fbadd7f7c62fa4c7');
-    return this._http.post<{credentialsIds: any}>('https://cloud-wallet-api.prod.affinity-project.org/api/v1/wallet/credentials', data, {headers: signingheaders});
+    return this._http.post<{credentialIds: any}>('https://cloud-wallet-api.prod.affinity-project.org/api/v1/wallet/credentials', data, {headers: signingheaders});
   }
 
   getallVC(){

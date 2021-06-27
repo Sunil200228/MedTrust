@@ -55,52 +55,6 @@ export class TablepageComponent implements OnInit {
 }
 /*
  Admin...
-    let ubvc = {
-        type: "IDDocumentCredentialPersonV1",
-        data: {
-          medicineName: this.name,
-          mrp: this.mrp,
-          companyName: this.companyName,
-          mfgDate: this.mfg,
-          expDate: this.expire,
-          batch: this.batchno
-          issueDate: date          
-        },
-        holderDid: postData.payload.holderDid
-    }
-    let uvcresp;
-    this._credService.buildUnsignedVC(ubvc).subcribe(res=>{
-      uvcresp = res;
-      console.log(res);
-    }, error=>{
-      console.log(error);
-    });
-    let svc;
-    this._credService.signVC(uvcresp.unsignedCredential).subscribe(res=>{
-      svc = res.signedCredential;
-      console.log(res);
-    }, err=>{
-      console.log(err);
-    });
 
-    let storevcdata = {
-      data: [ 
-        svc
-      ]
-    }
-    let credIds;
-    this._credService.storeVC(storevcdata).subscribe(res=>{
-      console.log(res);
-      credIds = res.credentialIds;
-    }, err=>{
-      console.log(err);
-    });
-    let dispmsg;
-    this._credService.shareVC(credIds[0]).subscribe(res=>{
-      dispmsg = res; //qrCode and sharingUrl
-      console.log(res);
-    }, err=>{
-      console.log(err);
-    })
 */
 
