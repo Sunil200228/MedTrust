@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {CredentialService} from 'src/app/credentials.service';
+import {CredentialService} from 'src/app/credential.service';
 
 @Component({
   selector: 'app-tablepage',
@@ -16,21 +16,20 @@ export class TablepageComponent implements OnInit {
   public expire !: string;
   public batchno !: string;
   public message !: string;
-
-  this.message = '';
   constructor(private _router : Router, private _credService : CredentialService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+
   }
 
   onSubmit(){
 
-    let date = new Date();
+    let date:any = new Date();
     date = date.toISOString().slice(0,10);
-    let usern = localStorage.getItem('username');
-    let did = localStorage.getItem('did');
-    let id = '_' + Math.random().toString(36).substr(2, 9);
-    let postData = {
+    let usern:any = localStorage.getItem('username');
+    let did:any = localStorage.getItem('did');
+    let id:any = '_' + Math.random().toString(36).substr(2, 9);
+    let postData:any = {
       medicineId: id,
       approved: false,
       payload: {
@@ -52,8 +51,10 @@ export class TablepageComponent implements OnInit {
     }, err => {
       console.log(err);
     });
-
-// Admin...
+  }
+}
+/*
+ Admin...
     let ubvc = {
         type: "IDDocumentCredentialPersonV1",
         data: {
@@ -101,7 +102,5 @@ export class TablepageComponent implements OnInit {
     }, err=>{
       console.log(err);
     })
+*/
 
-
-  }
-}

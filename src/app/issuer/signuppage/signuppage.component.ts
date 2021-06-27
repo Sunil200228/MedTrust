@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-signuppage',
   templateUrl: './signuppage.component.html',

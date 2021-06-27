@@ -7,7 +7,7 @@ import { CredentialService } from 'src/app/credential.service';
   styleUrls: ['./verifiertable.component.css']
 })
 export class VerifiertableComponent implements OnInit {
-  public meds!: any;
+  public meds: any = { };
   constructor(private _credService: CredentialService) { }
 
   ngOnInit(): void {

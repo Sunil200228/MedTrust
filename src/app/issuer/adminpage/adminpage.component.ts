@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CredentialService } from 'src/app/credential.service';
 
 @Component({
   selector: 'app-adminpage',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminpageComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _credService : CredentialService) { }
+  public meds:any = {};
   ngOnInit(): void {
+    this._credService.getallMeds().subscribe(res=>{
+      this.meds = res;
+      console.log(res);
+    }, err=>{
+      console.log(err);
+    });
   }
 
   

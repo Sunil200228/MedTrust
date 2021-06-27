@@ -34,7 +34,7 @@
             <td>{{med.payload.mfgDate}}</td>
             <td>{{med.payload.expDate}}</td>
             <td>{{med.payload.batch}}</td>
-            <td><div *ngIf="{{med.approved}}" else #elseBlock>Approved</div>
+            <td><div *ngIf="med.approved" else #elseBlock>Approved</div>
             <ng-template #elseBlock>Not Approved</ng-template>
             </td>
           </tr>

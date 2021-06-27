@@ -17,11 +17,11 @@ export class HolderLoginComponent implements OnInit {
     ngOnInit(): void {}
 
     onSignIn() {
-        const signInInfo = {
+        let signInInfo:any = {
             username : this.userName,
             password : this.userPassword
         };
-        this._userService.loginUser(siginInfo).subscribe(res=>{
+        this._userService.loginUser(signInInfo).subscribe(res=>{
             console.log(res);
             if(res.accessToken != undefined){
                 localStorage.setItem('accessToken', res.accessToken);
