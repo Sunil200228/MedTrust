@@ -5,7 +5,7 @@
 
             <form #login = "ngForm" (ngSubmit) = "onLogin()" class=" rounded shadow-5-strong p-5 border border-1 border-warning shadow-lg p-3 mb-5 bg-body rounded">
                 <div class="text-left pb-1 pt-3 fw-bolder text-uppercase">
-                    <h5>Wallet verifier Login</h5>
+                    <h5>Credential Verifier Login</h5>
                 </div>
                 <div class="text-left pb-3 pt-3">
                     <h6>Login in order to continue</h6>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <p>Share your credentials <a href="#">here!</a></p>
+                <p>Share your credentials <a routerLink="/verifier/sharecreds">here!</a></p>
 
                 <div class="text-left pt-3">
                     <p> Create an account <a routerLink="/verifier/signup">signup</a></p>

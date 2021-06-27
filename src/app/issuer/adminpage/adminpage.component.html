@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="text-left pt-3 pb-3">
+        <h4>Admin Page</h4>
+    </div>
+    <table class="table  border border-1 border-warning shadow-lg p-3 mb-5 bg-body rounded">
+        <thead>
+          <tr >
+            <th scope="col">#</th>
+            <th scope="col">Medicine Name</th>
+            <th scope="col">Batch</th>
+            <th scope="col">Approve</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let med of meds; let idx = index;">
+            <th scope="row">{{idx}}</th>
+            <td>{{med.payload.medicineName}}</td>
+            <td>{{med.payload.batch}}</td>
+            <td>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button class="btn btn-warning " type="button" (onclick)="onApprove({{ med.medicineId }})">Approve</button>
+                </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

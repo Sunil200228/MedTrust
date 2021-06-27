@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-verifiersignup',
@@ -10,7 +12,7 @@ export class VerifiersignupComponent implements OnInit {
   public userName !: string;
   public userPassword !: string;
 
-  constructor() { }
+  constructor(private _router : Router, private _userService : UserService) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +22,15 @@ export class VerifiersignupComponent implements OnInit {
       username : this.userName,
       password : this.userPassword
     };
-    console.log(userInfo);
-    
+    this._userService.signupUser(userInfo).subscribe(res=>{
+      console.log(res);
+      if(res.accessToken != undefined){
+          localStorage.setItem('accessToken', res.accessToken);
+          localStorage.setItem('verifierDid', res.did);
+          this._router.navigate(["/verifier/dashboard"]);
+      }
+    }, err=>{
+      console.log(err);
+    });
   }
 }

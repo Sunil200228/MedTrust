@@ -10,7 +10,7 @@ export class SignuppageComponent implements OnInit {
   public userEmail !: string;
   public userPassword !: string;
 
-  constructor() { }
+  constructor(private _router : Router, private _userService : UserService) {}
 
   ngOnInit(): void {
   }
@@ -20,7 +20,15 @@ export class SignuppageComponent implements OnInit {
       username : this.userEmail,
       password : this.userPassword
     };
-    console.log(userInfo);
-    
+    this._userService.signupUser(userInfo).subscribe(res=>{
+      console.log(res);
+      if(res.accessToken != undefined){
+          localStorage.setItem('accessToken', res.accessToken);
+          localStorage.setItem('issuerDid', res.did);
+          this._router.navigate(["/issuer/dashboard"]);
+      }
+    }, err=>{
+      console.log(err);
+    });
   }
 }

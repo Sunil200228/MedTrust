@@ -15,6 +15,8 @@ import { SignuppageComponent } from './issuer/signuppage/signuppage.component';
 import { TablepageComponent } from './issuer/tablepage/tablepage.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { AdminpageComponent } from './issuer/adminpage/adminpage.component';
+import { SharecredspageComponent } from './verifier/sharecredspage/sharecredspage.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { FormsModule } from '@angular/forms';
     SignuppageComponent,
     TablepageComponent,
     HomeComponent,
+    AdminpageComponent,
+    SharecredspageComponent,
   ],
   imports: [
     BrowserModule,

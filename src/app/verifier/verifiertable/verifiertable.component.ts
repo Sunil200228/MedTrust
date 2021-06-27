@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CredentialService } from 'src/app/credential.service';
 
 @Component({
   selector: 'app-verifiertable',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./verifiertable.component.css']
 })
 export class VerifiertableComponent implements OnInit {
-
-  constructor() { }
+  public meds!: any;
+  constructor(private _credService: CredentialService) { }
 
   ngOnInit(): void {
+    this._credService.getallMeds().subscribe(res=>{
+      this.meds = res;
+      console.log(res);
+    }, err=>{
+      console.log(err);
+    });
   }
+
 
 }
