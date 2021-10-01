@@ -14,13 +14,22 @@
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <label class="form-label " for="form1Example1">UserName</label>
-                    <input type="text" id="form1Example1" required #email = "ngModel" name="email" class="form-control"  [(ngModel)] = "userName"/>
+                    <input type="text"  id="form1Example1" [class.is-invalid]="email.errors && email.touched" required #email = "ngModel" name="email" class="form-control"  [(ngModel)] = "userName"/>
+                    <div *ngIf="email.touched">
+                        <div class="text-danger" required *ngIf="email.errors || !email.valid">A valid Username is required</div>
+                    </div>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
                     <label class="form-label " for="form1Example2">Password</label>
-                    <input type="password" id="form1Example2" required #password = "ngModel" name="password" class="form-control"  [(ngModel)] = "userPassword"/>
+                    <input type="password" minlength="6" id="form1Example2" [class.is-invalid]="password.errors && password.touched"  required #password = "ngModel" name="password" class="form-control"  [(ngModel)] = "userPassword"/>
+                    <div *ngIf="password.errors && password.touched">
+                        <div class="text-danger" *ngIf="password.errors.required! else check">Password is required</div>
+                        <ng-template #check>
+                            <div class="text-danger" *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                        </ng-template>
+                    </div>
                 </div>
 
                 <!-- 2 column grid layout for inline styling -->

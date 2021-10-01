@@ -9,17 +9,27 @@
                 </div>
                 <div class="text-left pb-3 pt-3">
                     <h6>Login in order to continue</h6>
+        
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <label class="form-label " for="form1Example1">UserName</label>
-                    <input type="text" id="form1Example1" class="form-control" name = "email" [(ngModel)] = "userEmail"/>
+                    <input type="text" id="form1Example1" class="form-control" [class.is-invalid]="myemail.errors && myemail.touched" #myemail="ngModel" name = "email" [(ngModel)] = "userEmail"/>
+                    <div *ngIf="myemail.touched">
+                        <div class="text-danger" required *ngIf="myemail.errors || !myemail.valid">A valid UserName is required</div>
+                    </div>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
                     <label class="form-label " for="form1Example2">Password</label>
-                    <input type="password" id="form1Example2" class="form-control" name = "password" [(ngModel)] = "userPassword"/>
+                    <input type="password" id="form1Example2" class="form-control" [class.is-invalid]="password.errors && password.touched"  required #password = "ngModel" name = "password" [(ngModel)] = "userPassword"/>
+                    <div *ngIf="password.errors && password.touched">
+                        <div class="text-danger" *ngIf="password.errors.required! else check">Password is required</div>
+                        <ng-template #check>
+                            <div class="text-danger" *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                        </ng-template>
+                    </div>
                 </div>
 
                 <!-- 2 column grid layout for inline styling -->

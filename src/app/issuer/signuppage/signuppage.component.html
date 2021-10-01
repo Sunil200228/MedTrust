@@ -13,13 +13,22 @@
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <label class="form-label " for="form1Example1">UserName</label>
-                    <input type="text" id="form1Example1" class="form-control" name = "email" [(ngModel)] = "userEmail"/>
+                    <input type="text" id="form1Example1" [class.is-invalid]="myemail.errors && myemail.touched" #myemail="ngModel" class="form-control" name = "email" [(ngModel)] = "userEmail"/>
+                    <div *ngIf="myemail.touched">
+                        <div class="text-danger" required *ngIf="myemail.errors || !myemail.valid">A valid UserName is required</div>
+                    </div>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
                     <label class="form-label " for="form1Example2">Password</label>
-                    <input type="password" id="form1Example2" class="form-control" name = "password" [(ngModel)] = "userPassword"/>
+                    <input type="password" [class.is-invalid]="myPass.errors && myPass.touched" #myPass="ngModel" id="form1Example2" class="form-control" name = "password" [(ngModel)] = "userPassword"/>
+                    <div *ngIf="myPass.errors && myPass.touched">
+                        <div class="text-danger" *ngIf="myPass.errors.required! else check">Password is required</div>
+                        <ng-template #check>
+                            <div class="text-danger" *ngIf="myPass.errors.minlength">Password must be at least 6 characters</div>
+                        </ng-template>
+                    </div>
                 </div>
                 <!-- Password con input -->
                 <div class="form-outline mb-4">
