@@ -9,7 +9,7 @@ let corsOption = {
 
 const mongoose = require('mongoose');
 const config = {
-    uri: "mongodb+srv://dbu:grEpUY19kZoAOLjy@sumeet.o01vt.mongodb.net/MedTrustdb?retryWrites=true&w=majority"
+    uri: ""
 }
 
 const dbCon = async () => {
